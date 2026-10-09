@@ -1,2 +1,2 @@
-# MindustryBuilds
-Latest builds for Mindustry
+# MindustryanBuilds
+Latest builds for Mindustryan
