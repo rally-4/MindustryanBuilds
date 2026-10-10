@@ -30,11 +30,10 @@ jobs:
         keystore_alias: raise
         JDK_DIR: /home/runner/jdks/
       run: |
-        git clone --depth=1 --branch=master https://github.com/Anuken/Arc
-        git clone --depth=1 --branch=master https://github.com/rally-4/Mindustryan
+        git clone --depth=1 --branch=v9 https://github.com/rally-4/Mindustryan
         cd Mindustryan
         echo "BODY=$(git rev-parse HEAD)" >> $GITHUB_ENV
-        sed -i 's/applicationId "io.rally.mindustryan"/applicationId "io.rally.mindustryan.be"/g' android/build.gradle
+        sed -i 's/applicationId "io.rally.mindustryan"/applicationId "io.rally.mindustryan.be"/g' android/build.gradle.kts
         sed -i 's/"io.rally.mindustryan"/"io.rally.mindustryan.be"/g' android/AndroidManifest.xml
         sed -i 's/Mindustryan/Mindustryan BE/g' android/res/values/strings.xml
         ./gradlew pack
