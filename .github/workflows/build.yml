@@ -44,7 +44,6 @@ jobs:
         echo "JDK directory: $JDK_DIR"
         ./gradlew desktop:dist -Pbuildversion=${RELEASE_VERSION} -Prelease -PversionModifier=steam -PversionType=bleeding-edge -PshowCommitHash --stacktrace
         echo $PWD
-        ls deploy/
     # - name: Upload desktop artifacts
     #   uses: svenstaro/upload-release-action@v2
     #   with:
