@@ -42,17 +42,17 @@ jobs:
         mv server/build/libs/server-release.jar server/build/libs/Mindustryan-BE-Server-${RELEASE_VERSION}.jar
         mv android/build/outputs/apk/release/android-release.apk android/build/outputs/apk/release/Mindustryan-BE-Android-${RELEASE_VERSION}.apk
         echo "JDK directory: $JDK_DIR"
-        ./gradlew desktop:dist -Pbuildversion=${RELEASE_VERSION} -Prelease -PversionModifier=steam -PversionType=bleeding-edge -PshowCommitHash desktop:packrWindows64 desktop:packrMacOS --stacktrace
+        # ./gradlew desktop:dist -Pbuildversion=${RELEASE_VERSION} -Prelease -PversionModifier=steam -PversionType=bleeding-edge -PshowCommitHash desktop:packrLinux64 desktop:packrWindows64 desktop:packrMacOS --stacktrace
         echo $PWD
         ls deploy/
-    - name: Upload desktop artifacts
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: Mindustryan/desktop/build/libs/Mindustryan-BE-Desktop-${{ env.RELEASE_VERSION }}.jar
-        tag: ${{ github.ref }}
-        release_name: "Build ${{ env.RELEASE_VERSION }}"
-        body: ${{ env.BODY }}
+    # - name: Upload desktop artifacts
+    #   uses: svenstaro/upload-release-action@v2
+    #   with:
+    #     repo_token: ${{ secrets.GITHUB_TOKEN }}
+    #     file: Mindustryan/desktop/build/libs/Mindustryan-BE-Desktop-${{ env.RELEASE_VERSION }}.jar
+    #     tag: ${{ github.ref }}
+    #     release_name: "Build ${{ env.RELEASE_VERSION }}"
+    #     body: ${{ env.BODY }}
     - name: Upload server artifacts
       uses: svenstaro/upload-release-action@v2
       with:
