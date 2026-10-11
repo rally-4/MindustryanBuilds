@@ -44,14 +44,14 @@ jobs:
         echo "JDK directory: $JDK_DIR"
         ./gradlew desktop:dist -Pbuildversion=${RELEASE_VERSION} -Prelease -PversionModifier=steam -PversionType=bleeding-edge -PshowCommitHash --stacktrace
         echo $PWD
-    # - name: Upload desktop artifacts
-    #   uses: svenstaro/upload-release-action@v2
-    #   with:
-    #     repo_token: ${{ secrets.GITHUB_TOKEN }}
-    #     file: Mindustryan/desktop/build/libs/Mindustryan-BE-Desktop-${{ env.RELEASE_VERSION }}.jar
-    #     tag: ${{ github.ref }}
-    #     release_name: "Build ${{ env.RELEASE_VERSION }}"
-    #     body: ${{ env.BODY }}
+    - name: Upload desktop artifacts
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: Mindustryan/desktop/build/libs/Mindustryan-BE-Desktop-${{ env.RELEASE_VERSION }}.jar
+        tag: ${{ github.ref }}
+        release_name: "Build ${{ env.RELEASE_VERSION }}"
+        body: ${{ env.BODY }}
     - name: Upload server artifacts
       uses: svenstaro/upload-release-action@v2
       with:
